@@ -1,0 +1,44 @@
+Popescu Bogdan Petrut
+334CC
+Tema 1 SO
+
+Implementare:
+	Am folosit un hashtable alocat dinamic, ce contine liste pentru fiecare 
+ valoare de hash. Ca functie de hash, am folosit inmultirea cu 33 a fiecarui 
+ caracter. 
+
+ 	Functii:
+
+	- create_hashtable, care aloca hashtable ul si bucketurile, 
+	- create_node, care aloca un nod cu cheie, valoare si pointer la urmatorul nod
+	- hash, care face hash si afla lista in care nodul trebuie adaugat
+	- set, care adauga cheie+valoare la o anumita pozitie
+	- get, care extrage valoarea unui nod cu o cheie anume
+	- pop, care sterge un nod cu o cheie anume
+	- free, care elibereaza memoria
+	- process_file, care parcurge fisierul si scrie in output rezultatul
+	- main, care proceseaza argumentele 
+
+	Detalii de implementare:
+	
+	- Citirea din fisier o fac linie cu linie, folosind fgets.
+	- Scrierea o fac linie cu linie, cu un sir la care concatenez ce trebuie afisat
+	- Pentru a selecta cuvant cu cuvant, folosesc strtok cu un sir de separatori.
+ Pentru a cunoaste ce separator a fost folosit, imi fac o copie inainte de strtok
+ si retin caracterul de pe pozitia de unde a fost gasit separatorul (in cazul in
+ care separatorul poate fi doar spatiu, concatenez direct spatiu la sirul rezultat)
+	- Verific existenta ghilimelelor, unde nu se mai modifica cheia la output
+	- Verific existenta fisierelor date ca parametru. Daca nu exista, ies cu eroare
+	- Verific numarul de fisiere date ca parametru. Daca nr >2, ies cu eroare
+	- Verific rezultatul apelarii malloc. Daca este null, ies cu eroare.
+	- Folosesc o variabila care ma anunta daca ma aflu in interiorul unei 
+ instructiuni #if/elif/ifdef/ifndef/else. Astfel, stiu daca trebuie ignorate 
+ anumite linii.
+
+	Nu am implementat, pentru #define, varianta tip multilinie.
+	La memcheck pentru testul 29, primesc un segmentation fault, dar testul 
+ imi trece.
+	Nu am implementat mare parte din cerintele de coding style.
+	Pe Linux, am 88 pct datorita testului cu define multilinie, iar pe Windows
+ am ceva mai putin, deoarece pica unele teste de memcheck.
+	
